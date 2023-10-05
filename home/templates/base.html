@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    
+    <style>
+    *{
+        padding: 0;
+        margin:0;
+        box-sizing: border-box;
+        font-size: 1.05rem;
+        text-decoration: none;
+        font-family: sans-serif;
+    }
+        
+    nav{
+    
+    color:white;
+    background-color: black;
+    padding: 0 2rem;    
+    }
+    ul{
+        display: flex;
+        justify-content: flex-start;
+        list-style: none;
+    }
+    li{
+        padding:0.5rem;
+
+    }
+    a{
+        color: white;
+    }
+    a:hover{
+        /* this will only show particular text hover change in color yellow */
+        color: yellow;
+    }
+    /* for displaying hover in total block type
+    then add li:hover{
+        color:yellow;
+    } */
+    
+
+    </style>
+    {% block css %}
+        
+    {% endblock css %}
+        
+</head>
+<body>
+    <nav>
+        <ul>
+            <!-- li*3>a -->
+            <li><a href="{% url 'images' %}">🖼Images</a></li>
+            <!-- images home mein h toh address aayega -->
+            <li><a href="{% url 'categories' %}">🏷Categories</a></li>
+            <!-- categories pr hover krne se dashboard mein address /categories k aayega -->
+            <li><a href="{% url 'tags' %}">📎Tags</a></li>
+            <!-- tags mein hover krne se dashboard mein /tags k aayega address -->
+        </ul>
+    </nav>
+    <main>
+        <!-- <h1>Image Gallery using Django</h1> -->
+        
+        {% block content  %}
+            
+        {% endblock content  %}
+            
+    </main>
+</body>
+</html>

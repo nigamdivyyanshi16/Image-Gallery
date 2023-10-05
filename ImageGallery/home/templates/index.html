@@ -1,0 +1,27 @@
+<!-- extends should always be the first line  -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- jo static files hai jaise images, videos ye sb inhe load krne k liye help krta hai jinja load static tag -->
+<!-- we have inherited this file with base.html -->
+
+{% block content %}
+    <!-- <p>This is home</p> -->
+    <!-- {{categories}}   -->
+    <div class="image-container">
+        
+        {% for i in images  %}
+        <!-- images name is same as written   {'images':images} in views.py  -->
+       <div class="card">
+        <img src="{{i.file.url}}" alt="">
+       </div>
+        <!-- {{i}} -->
+            <!-- i is image k object  -->
+            <!-- i ek item hai , image(name used in models) property hai or url wo address hai -->
+        {% endfor %}
+            
+    </div>
+{% endblock content %}
+<!-- template errors comes when html code has some errors -->
+<!-- the keyword endblock and the line of endblock is very important otherwise it will throw a missing erro -->
+<!-- % is also neccessary it will too throw errors-->
+<!--  between % and {} must not have space -->
